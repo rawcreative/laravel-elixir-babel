@@ -11,6 +11,7 @@ var gulp = require('gulp'),
 elixir.extend('babel', function (src, options) {
 
     var config = this,
+        babelOpts,
         defaultOptions = {
             debug:         ! config.production,
             srcDir:        config.assetsDir + 'js',
@@ -19,6 +20,7 @@ elixir.extend('babel', function (src, options) {
         };
 
     options = _.extend(defaultOptions, options);
+    babelOpts = _.omit(options, ['srcDir', 'output', 'sourceMaps', 'debug']);
     src = "./" + utilities.buildGulpSrc(src, options.srcDir);
 
     gulp.task('babel', function () {
@@ -30,9 +32,9 @@ elixir.extend('babel', function (src, options) {
 
         return gulp.src(src)
             .pipe(gulpIf(options.sourceMaps, sourcemaps.init()))
-            .pipe(babel(options)).on('error', onError)
+            .pipe(babel(babelOpts)).on('error', onError)
             .pipe(gulpIf(! options.debug, uglify()))
-            .pipe(gulpIf(options.sourceMaps, sourcemaps.write('.')))
+            .pipe(gulpIf(options.sourceMaps, sourcemaps.write()))
             .pipe(gulp.dest(options.output))
             .pipe(new notification().message('Babel Compilation Finished!'));
     });
