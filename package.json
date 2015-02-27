@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-babel",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Laravel elixir extension for transpiling ES6 javascript to ES5 using Babel",
   "main": "index.js",
   "scripts": {
