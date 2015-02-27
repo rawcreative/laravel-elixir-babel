@@ -1,0 +1,27 @@
+{
+  "name": "laravel-elixir-babel",
+  "version": "0.1.0",
+  "description": "Laravel elixir extension for transpiling ES6 javascript to ES5 using Babel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "babel",
+    "laravel",
+    "elixir",
+    "laravel-elixir",
+    "es6",
+    "laravel",
+    "gulp"
+  ],
+  "author": "T. Debo",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-babel": "^4.0.0",
+    "gulp-if": "^1.2.5",
+    "gulp-sourcemaps": "^1.5.0",
+    "gulp-uglify": "^1.1.0",
+    "underscore": "^1.8.2"
+  }
+}
